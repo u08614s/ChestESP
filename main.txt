@@ -1,0 +1,694 @@
+stwu r1,-520(r1)
+mflr r0
+stw r0 ,524(r1)
+stw r22,440(r1)
+stw r23,444(r1)
+stw r24,448(r1)
+stw r25,452(r1)
+stw r26,456(r1)
+stw r27,460(r1)
+stw r28,464(r1)
+stw r29,468(r1)
+stw r30,472(r1)
+stw r31,476(r1)
+stfd f29,496(r1)
+stfd f30,504(r1)
+stfd f31,512(r1)
+
+fmr f29,f1
+fmr f30,f2
+fmr f31,f3
+lis r24,0x3F00
+lis r28,0x2FD
+ori r25,r28,0x1FB4
+ori r26,r28,0x2288
+ori r27,r28,0x36C4
+ori r28,r28,0x2A34
+lis r29,0x3F80
+
+lis r30,0x316
+ori r30,r30,0x6818
+mtctr r30
+bctrl
+# GetInstance_Minecraft
+
+lwz r23,0x34(r3)
+# ->getPlayers
+
+lis r9,0x30F
+ori r9,r9,0x974C
+mtctr r9
+bctrl
+# disableCull
+
+lis r9,0x30E
+ori r9,r9,0x4B24
+mtctr r9
+bctrl
+# disableLighting
+
+lis r9,0x30E
+ori r9,r9,0x9B9C
+mtctr r9
+bctrl
+# disableDepthTest
+
+lis r9,0x30E
+ori r9,r9,0x6268
+mtctr r9
+bctrl
+# disableTexture
+
+lis r9,0x30E
+ori r9,r9,0x5284
+mtctr r9
+bctrl
+# enableBlend
+
+li r4,5
+li r3,4
+lis r9,0x30E
+ori r9,r9,0x52A0
+mtctr r9
+bctrl
+# blendFunc
+
+lis r9,0x333
+ori r9,r9,0x7EF0
+mtctr r9
+bctrl
+lwz r3,0(r3)
+# getInstance_Tesselator->getBuilder
+
+mr r31,r3
+mtctr r30
+bctrl
+# GetInstance_Minecraft
+lwz r22,0x104(r3)
+# ->??
+
+lis r9,0x30E
+ori r9,r9,0x4B3C
+mtctr r9
+bctrl
+# pushMatrix
+
+li r4,4
+mr r3,r31
+mtctr r25
+bctrl
+# BufferBuilder::begin
+
+li r5,0xFF
+lis r4,0xFF
+mr r3,r31
+mtctr r27
+bctrl
+# BufferBuilder::color
+
+stw r24,112(r1)
+mr r3,r31
+lfs f1,112(r1)
+stw r24,116(r1)
+fadds f1,f29,f1
+lfs f2,116(r1)
+stw r24,120(r1)
+fadds f2,f30,f2
+lfs f3,120(r1)
+fadds f3,f31,f3
+mtctr r28
+bctrl
+# BufferBuilder::vertex
+
+li r5,0xFF
+li r4,0xFF
+mr r3,r31
+mtctr r27
+bctrl
+# BufferBuilder::color
+
+li r30,0
+stw r30,124(r1)
+stw r30,128(r1)
+stw r30,132(r1)
+lfs f1,124(r1)
+lfs f2,128(r1)
+lfs f3,132(r1)
+mr r3,r31
+mtctr r28
+bctrl
+# BufferBuilder::vertex
+
+mr r3,r31
+mtctr r26
+bctrl
+
+mr r3,r31
+li r4,3
+mtctr r25
+bctrl
+
+li r5,30
+lis r4,255
+mr r3,r31
+mtctr r27
+bctrl
+# BufferBuilder::color
+
+stw r30,136(r1)
+mr r3,r31
+mtctr r28
+lfs f1,136(r1)
+stw r30,140(r1)
+fadds f1,f29,f1
+lfs f2,140(r1)
+stw r30,144(r1)
+fadds f2,f30,f2
+lfs f3,144(r1)
+fadds f3,f31,f3
+bctrl
+
+stw r29,148(r1)
+mr r3,r31
+mtctr r28
+lfs f1,148(r1)
+stw r30,152(r1)
+fadds f1,f29,f1
+lfs f2,152(r1)
+stw r30,156(r1)
+fadds f2,f30,f2
+lfs f3,156(r1)
+fadds f3,f31,f3
+bctrl
+
+stw r29,160(r1)
+mr r3,r31
+lfs f1,160(r1)
+stw r29,164(r1)
+fadds f1,f29,f1
+lfs f2,164(r1)
+stw r30,168(r1)
+fadds f2,f30,f2
+lfs f3,168(r1)
+fadds f3,f31,f3
+mtctr r28
+bctrl
+
+stw r30,172(r1)
+mr r3,r31
+lfs f1,172(r1)
+stw r29,176(r1)
+fadds f1,f29,f1
+lfs f2,176(r1)
+stw r30,180(r1)
+fadds f2,f30,f2
+lfs f3,180(r1)
+fadds f3,f31,f3
+mtctr r28
+bctrl
+
+mr r3,r31
+mtctr r26
+bctrl
+
+mr r3,r31
+li r4,3
+mtctr r25
+bctrl
+
+li r5,30
+lis r4,255
+mr r3,r31
+mtctr r27
+bctrl
+# BufferBuilder::color
+
+stw r30,184(r1)
+mr r3,r31
+mtctr r28
+lfs f1,184(r1)
+stw r30,188(r1)
+fadds f1,f29,f1
+lfs f2,188(r1)
+stw r29,192(r1)
+fadds f2,f30,f2
+lfs f3,192(r1)
+fadds f3,f31,f3
+bctrl
+
+stw r29,196(r1)
+mr r3,r31
+mtctr r28
+lfs f1,196(r1)
+stw r30,200(r1)
+fadds f1,f29,f1
+lfs f2,200(r1)
+stw r29,204(r1)
+fadds f2,f30,f2
+lfs f3,204(r1)
+fadds f3,f31,f3
+bctrl
+
+stw r29,208(r1)
+mr r3,r31
+mtctr r28
+lfs f1,208(r1)
+stw r29,212(r1)
+fadds f1,f29,f1
+lfs f2,212(r1)
+stw r29,216(r1)
+fadds f2,f30,f2
+lfs f3,216(r1)
+fadds f3,f31,f3
+bctrl
+
+stw r30,220(r1)
+mr r3,r31
+mtctr r28
+lfs f1,220(r1)
+stw r29,224(r1)
+fadds f1,f29,f1
+lfs f2,224(r1)
+stw r29,228(r1)
+fadds f2,f30,f2
+lfs f3,228(r1)
+fadds f3,f31,f3
+bctrl
+
+mr r3,r31
+mtctr r26
+bctrl
+
+mr r3,r31
+li r4,3
+mtctr r25
+bctrl
+
+li r5,30
+lis r4,255
+mr r3,r31
+mtctr r27
+bctrl
+# BufferBuilder::color
+
+stw r30,232(r1)
+mr r3,r31
+mtctr r28
+lfs f1,232(r1)
+stw r30,236(r1)
+fadds f1,f29,f1
+lfs f2,236(r1)
+stw r30,240(r1)
+fadds f2,f30,f2
+lfs f3,240(r1)
+fadds f3,f31,f3
+bctrl
+
+stw r30,244(r1)
+mr r3,r31
+mtctr r28
+lfs f1,244(r1)
+stw r29,248(r1)
+fadds f1,f29,f1
+lfs f2,248(r1)
+stw r30,252(r1)
+fadds f2,f30,f2
+lfs f3,252(r1)
+fadds f3,f31,f3
+bctrl
+
+stw r30,256(r1)
+mr r3,r31
+mtctr r28
+lfs f1,256(r1)
+stw r29,260(r1)
+fadds f1,f29,f1
+lfs f2,260(r1)
+stw r29,264(r1)
+fadds f2,f30,f2
+lfs f3,264(r1)
+fadds f3,f31,f3
+bctrl
+
+stw r30,268(r1)
+mr r3,r31
+mtctr r28
+lfs f1,268(r1)
+stw r30,272(r1)
+fadds f1,f29,f1
+lfs f2,272(r1)
+stw r29,276(r1)
+fadds f2,f30,f2
+lfs f3,276(r1)
+fadds f3,f31,f3
+bctrl
+
+mr r3,r31
+mtctr r26
+bctrl
+
+mr r3,r31
+li r4,3
+mtctr r25
+bctrl
+
+li r5,30
+lis r4,255
+mr r3,r31
+mtctr r27
+bctrl
+# BufferBuilder::color
+
+stw r29,280(r1)
+mr r3,r31
+mtctr r28
+lfs f1,280(r1)
+stw r30,284(r1)
+fadds f1,f29,f1
+lfs f2,284(r1)
+stw r30,288(r1)
+fadds f2,f30,f2
+lfs f3,288(r1)
+fadds f3,f31,f3
+bctrl
+
+stw r29,292(r1)
+mr r3,r31
+mtctr r28
+lfs f1,292(r1)
+stw r29,296(r1)
+fadds f1,f29,f1
+lfs f2,296(r1)
+stw r30,300(r1)
+fadds f2,f30,f2
+lfs f3,300(r1)
+fadds f3,f31,f3
+bctrl
+
+stw r29,304(r1)
+mr r3,r31
+mtctr r28
+lfs f1,304(r1)
+stw r29,308(r1)
+fadds f1,f29,f1
+lfs f2,308(r1)
+stw r29,312(r1)
+fadds f2,f30,f2
+lfs f3,312(r1)
+fadds f3,f31,f3
+bctrl
+
+stw r29,316(r1)
+mr r3,r31
+mtctr r28
+lfs f1,316(r1)
+stw r30,320(r1)
+fadds f1,f29,f1
+lfs f2,320(r1)
+stw r29,324(r1)
+fadds f2,f30,f2
+lfs f3,324(r1)
+fadds f3,f31,f3
+bctrl
+
+mr r3,r31
+mtctr r26
+bctrl
+
+mr r3,r31
+li r4,3
+mtctr r25
+bctrl
+
+li r5,30
+lis r4,255
+mr r3,r31
+mtctr r27
+bctrl
+# BufferBuilder::color
+
+stw r30,328(r1)
+mr r3,r31
+lfs f1,328(r1)
+stw r30,332(r1)
+fadds f1,f29,f1
+lfs f2,332(r1)
+stw r30,336(r1)
+fadds f2,f30,f2
+lfs f3,336(r1)
+fadds f3,f31,f3
+mtctr r28
+bctrl
+
+stw r30,340(r1)
+mr r3,r31
+lfs f1,340(r1)
+stw r30,344(r1)
+fadds f1,f29,f1
+lfs f2,344(r1)
+stw r29,348(r1)
+fadds f2,f30,f2
+lfs f3,348(r1)
+fadds f3,f31,f3
+mtctr r28
+bctrl
+
+stw r29,352(r1)
+mr r3,r31
+lfs f1,352(r1)
+stw r30,356(r1)
+fadds f1,f29,f1
+lfs f2,356(r1)
+stw r29,360(r1)
+fadds f2,f30,f2
+lfs f3,360(r1)
+fadds f3,f31,f3
+mtctr r28
+bctrl
+
+stw r29,364(r1)
+mr r3,r31
+lfs f1,364(r1)
+stw r30,368(r1)
+fadds f1,f29,f1
+lfs f2,368(r1)
+stw r30,372(r1)
+fadds f2,f30,f2
+lfs f3,372(r1)
+fadds f3,f31,f3
+mtctr r28
+bctrl
+
+mr r3,r31
+mtctr r26
+bctrl
+
+mr r3,r31
+li r4,3
+mtctr r25
+bctrl
+
+li r5,30
+lis r4,255
+mr r3,r31
+mtctr r27
+bctrl
+# BufferBuilder::color
+
+stw r30,376(r1)
+lfs f1,376(r1)
+fadds f1,f29,f1
+stw r29,380(r1)
+lfs f2,380(r1)
+fadds f2,f30,f2
+stw r30,384(r1)
+lfs f3,384(r1)
+fadds f3,f31,f3
+mr r3,r31
+mtctr r28
+bctrl
+
+stw r30,388(r1)
+lfs f1,388(r1)
+fadds f1,f29,f1
+stw r29,392(r1)
+lfs f2,392(r1)
+fadds f2,f30,f2
+stw r29,396(r1)
+lfs f3,396(r1)
+fadds f3,f31,f3
+mr r3,r31
+mtctr r28
+bctrl
+
+stw r29,400(r1)
+lfs f1,400(r1)
+stw r29,404(r1)
+lfs f2,404(r1)
+stw r29,408(r1)
+lfs f3,408(r1)
+fadds f1,f29,f1
+fadds f2,f30,f2
+fadds f3,f31,f3
+mr r3,r31
+mtctr r28
+bctrl
+
+stw r29,412(r1)
+lfs f1,412(r1)
+stw r29,416(r1)
+lfs f2,416(r1)
+stw r30,420(r1)
+lfs f3,420(r1)
+fadds f1,f29,f1
+fadds f2,f30,f2
+fadds f3,f31,f3
+mr r3,r31
+mtctr r28
+bctrl
+
+mr r3,r31
+mtctr r26
+bctrl
+
+fmuls f1,f31,f31
+fmadds f1,f29,f29,f1
+lis r31,0x383
+ori r31,r31,0x23CC
+mtctr r31
+bctrl
+# sqrt
+
+lis r9,16448
+stw r9,424(r1)
+lfs f0,424(r1)
+fcmpu cr7,f0,f1
+bge cr7,POP
+stfd f27,480(r1)
+stfd f28,488(r1)
+lis r9,-0x42B4
+ori r9,r9,0xCCCD
+stw r9,80(r1)
+lfs f27,80(r1)
+fmr f28,f1
+mtctr r31
+bctrl
+
+stw r24,84(r1)
+lfs f0,84(r1)
+lis r10,0x3FC0
+stw r10,88(r1)
+lfs f2,88(r1)
+fmuls f27,f1,f27
+fadds f1,f29,f0
+fadds f2,f30,f2
+stw r24,92(r1)
+lfs f3,92(r1)
+fadds f3,f31,f3
+lis r9,0x30E
+ori r9,r9,0x4B54
+mtctr r9
+bctrl
+# translatef
+
+lis r9,-0x4080
+stw r9,96(r1)
+fmr f1,f27
+fmr f2,f27
+lfs f3,96(r1)
+fmuls f3,f27,f3
+lis r9,0x30E
+ori r9,r9,0x4B6C
+mtctr r9
+bctrl
+# scalef
+
+stw r30,100(r1)
+lfs f1,328(r23)
+lfs f2,100(r1)
+stw r29,104(r1)
+lfs f3,104(r1)
+stw r30,108(r1)
+lfs f4,108(r1)
+lis r9,0x30E
+ori r9,r9,0x4B84
+mtctr r9
+bctrl
+# rotatef
+
+bl swprintf_1
+.long 0x0025002E
+.long 0x00310066
+.long 0x006D0000
+swprintf_1:
+mflr r5
+fmr f1,f28
+li r4,50
+addi r3,r1,8
+crset 4*cr1+eq
+lis r9,0x382
+ori r9,r9,0xC8C0
+mtctr r9
+bctrl
+# swprintf
+
+addi r4,r1,8
+addi r3,r1,48
+lis r9,0x20B
+ori r9,r9,0x8D4
+mtctr r9
+bctrl
+# basic string
+
+lis r7,-32
+addi r4,r1,48
+mr r3,r22
+ori r7,r7,34346
+li r6,0
+li r5,0
+lis r9,0x312
+ori r9,r9,0x6B88
+mtctr r9
+bctrl
+# Font draw
+
+lfd f27,480(r1)
+lfd f28,488(r1)
+
+POP:
+lis r9,0x30E
+ori r9,r9,0x4BD8
+mtctr r9
+bctrl
+# popMatrix
+
+END:
+lis r9,0x30E
+ori r9,r9,0x6294
+mtctr r9
+bctrl # enableTexture
+lis r9,0x30E
+ori r9,r9,0x9BB8
+mtctr r9
+bctrl # enableDepthTest
+lis r9,0x30E
+ori r9,r9,0x4C04
+mtctr r9
+bctrl # enableLighting
+lwz r0 ,524(r1)
+lwz r22,440(r1)
+lwz r23,444(r1)
+lwz r24,448(r1)
+lwz r25,452(r1)
+lwz r26,456(r1)
+lwz r27,460(r1)
+lwz r28,464(r1)
+lwz r29,468(r1)
+lwz r30,472(r1)
+lwz r31,476(r1)
+lfd f29,496(r1)
+lfd f30,504(r1)
+lfd f31,512(r1)
+mtlr r0
+addi r1,r1,520
+blr
